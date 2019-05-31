@@ -33,6 +33,17 @@ class Mmkt_detail extends CI_Model
         return $query;
     }
 
+    //lấy dữ liệu cho trang partner
+    public function get_all_mkt_detail_partner($is_action){
+        $this->db->select('c.name, m.id, m.create_at, m.time_callback,m.is_action, m.content,c.marketer_id');
+        $this->db->from('mkt_detail m');
+        $this->db->join('customers c','m.customer_id = c.id','inner');
+        $this->db->order_by('m.create_at','DESC');
+        $this->db->where('m.is_action',$is_action);
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+
     /*
      * insert dung chung cho overview, detail
      */

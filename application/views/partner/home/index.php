@@ -8,6 +8,31 @@ require_once(APPPATH.'views/sidebar-partner.php');
     <!-- /.col-xs-12 -->
     <div class="col-xs-12">
         <div class="box-content card">
+            <!-- hien thi thong bao o day -->
+            <?php
+            //hien thi thong bao thanh cong
+            if($this->session->flashdata('msg_users_success')){
+                ?>
+                <div class="alert alert-success" role="alert">
+                    <strong>Success!</strong> <?php echo $this->session->flashdata('msg_users_success'); ?>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }
+            //hien thi thong bao khong thanh cong
+            if($this->session->flashdata('msg_users_error')){
+                ?>
+                <div class="alert alert-warning" role="alert">
+                    <strong>Error!</strong> <?php echo $this->session->flashdata('msg_users_error'); ?>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }
+            ?>
             <h4 class="box-title"><i class="fa fa-info ico"></i>Thông tin ủy quyền</h4>
             <!-- /.box-title -->
             <!-- /.dropdown js__dropdown -->

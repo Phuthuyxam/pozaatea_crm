@@ -47,6 +47,29 @@ class Msales_detail extends CI_Model
         return $query;
     }
 
+    //dữ liệu cho trang partner
+    public function get_sale_detail_partner(){
+        $this->db->select('c.id as cus_id, c.name, c.email, c.phone,c.phone2,c.address, c.level_id, c.link_tracking, c.service_id, c.marketer_id, c.source_id,
+        c.telesale_id, c.note as note_customer,c.create_at, c.status, s.id as sale_id, s.customer_id, s.status_care_id, s.note as note_sale, s.opening_date, s.duration, s.deposit, s.contract');
+        $this->db->from('sales_overview s');
+        $this->db->join('customers c','s.customer_id = c.id','inner');
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
+
+
+    public function get_all_sales_detail_partner($is_action){
+        $this->db->select('c.name, sd.id, s.id as sale_id, sd.create_at, sd.level_history, sd.status_history, sd.time_callback,sd.is_action, sd.content,
+        s.note as note_sale, c.telesale_id');
+        $this->db->from('sales_overview s');
+        $this->db->join('sales_detail sd','s.id = sd.sale_id','inner');
+        $this->db->join('customers c','s.customer_id = c.id','inner');
+        $this->db->where('sd.is_action',$is_action);
+        $this->db->order_by('sd.create_at','');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+
     /*
      * insert dung chung cho overview, detail
      */

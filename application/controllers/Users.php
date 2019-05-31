@@ -234,6 +234,7 @@ Class Users extends CI_Controller{
         $email = $login['user_login'];
         $user_info = $this->Musers->get_user_info($email);
         $this->_data['info'] = $user_info;
+        $this->_data['user_info'] = $user_info;
 
 
         //thuc hien cap nhat thong tin

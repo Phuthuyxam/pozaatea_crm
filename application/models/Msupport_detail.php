@@ -46,6 +46,31 @@ class Msupport_detail extends CI_Model
     }
 
     /*
+    * lấy dữ liệu cho trang partner
+    */
+
+    public function get_support_detail_partner(){
+        $this->db->select('c.id as cus_id, c.name, c.email, c.phone,c.phone2,c.address, c.level_id, c.link_tracking, c.service_id, c.marketer_id, c.source_id,
+        c.telesale_id, c.note as note_customer,c.create_at, c.status, s.id as sale_id, s.customer_id, s.status_care_id, s.note as note_sale, s.opening_date, s.duration, s.deposit, s.contract,
+        sp.id as support_id, sp.create_at as time_up');
+        $this->db->from('sales_overview s');
+        $this->db->join('customers c','s.customer_id = c.id','inner');
+        $this->db->join('support_overview sp','s.id = sp.sale_id','inner');
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
+
+    /*
+     * list detail
+     */
+    public function get_all_support_detail_partner($is_action){
+        $this->db->where('is_action', $is_action);
+        $this->db->order_by('create_at','DESC');
+        $query = $this->db->get($this->_table)->result_array();
+        return $query;
+    }
+
+    /*
      * insert dung chung cho overview, detail
      */
 

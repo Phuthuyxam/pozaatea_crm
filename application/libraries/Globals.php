@@ -96,8 +96,6 @@ class Globals
 
     }
 
-
-
     /*
      * get level
      */
@@ -380,6 +378,84 @@ class Globals
         $CI =& get_instance();
         $CI->load->model('Mcustomershop');
         $result = $CI->Mcustomershop->get_by_customer_id($cus_id);
+        return $result;
+    }
+
+    // get info ticket
+
+    public function get_ticket($id){
+        $CI =& get_instance();
+        $CI->load->model('Mtickets');
+        $result = $CI->Mtickets->get_ticket($id);
+        return $result;
+    }
+
+    public function get_last_child_ticket($customer_id){
+        $CI =& get_instance();
+        $CI->load->model('Mtickets');
+        $parent = $CI->Mtickets->get_tickets_by_customer_id($customer_id);
+        return $parent['id']; 
+    }
+
+    // check ticket with customer id 
+
+    public function check_empty_ticket($customer_id){
+        $CI =& get_instance();
+        $CI->load->model('Mtickets');
+        $check = $CI->Mtickets->get_all_tickets_by_customer_id($customer_id);
+        if(!empty($check)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    // back up 31-5 anh h.long
+
+    
+    // get materials -- 31/05/2019
+
+    public function get_all_materials(){
+        $CI =& get_instance();
+        $CI->load->model('Mmaterials');
+        $result = $CI->Mmaterials->get_all_materials();
+        return $result;
+    }
+
+    public function get_material($material_id){
+        $CI =& get_instance();
+        $CI->load->model('Mmaterials');
+        $result = $CI->Mmaterials->get_material($material_id);
+        return $result;
+    }
+
+    /*
+     * get exim_overview
+     */
+    public function get_exim_overview($id){
+        $CI =& get_instance();
+        $CI->load->model('Mexim_overview');
+        $result = $CI->Mexim_overview->get_exim_overview($id);
+        return $result;
+    }
+
+    /*
+     * get customers by export detail materials
+     */
+    public function get_all_customers_export_materials(){
+        $CI =& get_instance();
+        $CI->load->model('Mexim_overview');
+        $result = $CI->Mexim_overview->get_all_customers();
+        return $result;
+    }
+
+    /*
+     * get all inventory -- 31/05/2019
+     */
+    public function get_all_inventory(){
+        $CI =& get_instance();
+        $CI->load->model('Minventory');
+        $result = $CI->Minventory->get_all_inventory();
         return $result;
     }
 

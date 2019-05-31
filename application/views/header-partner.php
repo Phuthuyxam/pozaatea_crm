@@ -45,6 +45,8 @@ if (!isset($login['customer_login']) || !isset($login['customer_login_url']) || 
 
     <!-- select2  -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/styles/select2.min.css">
+
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/styles/style.css">
 </head>
 
 <body>

@@ -151,6 +151,42 @@
                 <!-- /.sub-menu js__content -->
             </li>
 
+
+            <li class="<?php echo (@$url_name == 'materials')?'current':''; ?>">
+                <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-store"></i><span>Quản lý nguyên liệu</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                <ul class="sub-menu js__content">
+                    <li><a href="<?php echo base_url('materials/add'); ?>">Thêm mới</a></li>
+                    <li><a href="<?php echo base_url('materials/index'); ?>">Danh sách </a></li>
+                </ul>
+                <!-- /.sub-menu js__content -->
+            </li>
+
+            <li class="<?php echo (@$url_name == 'exim_overview')?'current':''; ?>">
+                <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-store"></i><span>Quản lý nhập xuất</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                <ul class="sub-menu js__content">
+                    <li><a href="<?php echo base_url('exim_overview/import'); ?>">Nhập kho</a></li>
+                    <li><a href="<?php echo base_url('exim_overview/export'); ?>">Xuất kho</a></li>
+                    <li><a href="<?php echo base_url('exim_overview/index'); ?>">Danh sách </a></li>
+                </ul>
+                <!-- /.sub-menu js__content -->
+            </li>
+
+            <li class="<?php echo (@$url_name == 'inventory')?'current':''; ?>">
+                <a class="waves-effect" href="<?php echo base_url('inventory/index'); ?>"><i class="menu-icon mdi mdi-library"></i><span>Quản lý tồn kho</span></a>
+            </li>
+
+
+            <li class="<?php echo (@$url_name == 'tickets')?'current':''; ?>">
+                <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-comment-multiple-outline"></i><span>Quản lý yêu cầu khách hàng</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                <ul class="sub-menu js__content">
+                    <!-- <li><a href="<?php echo base_url('shops/add'); ?>">Thêm mới</a></li> -->
+                    <li><a href="<?php echo base_url('tickets_admin/index'); ?>">Danh sách </a></li>
+                </ul>
+                <!-- /.sub-menu js__content -->
+            </li>
+
+
+
             <li class="<?php echo (@$url_name == 'channel')?'current':''; ?>">
                 <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-folder-multiple"></i><span>Quản lý kênh</span><span class="menu-arrow fa fa-angle-down"></span></a>
                 <ul class="sub-menu js__content">

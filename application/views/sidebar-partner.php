@@ -12,16 +12,23 @@
             <li >
                 <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-desktop-mac"></i><span>Hỗ trợ</span><span class="menu-arrow fa fa-angle-down"></span></a>
                 <ul class="sub-menu js__content">
-                    <li><a href="#">Trước khai trương</a></li>
-                    <li><a href="#">Sau khai trương</a></li>
-                    <li><a href="#">Tạo yêu cầu</a></li>
+                    <li><a href="<?php echo base_url('partner/pre_supports/index/2'); ?>">Trước khai trương</a></li>
+                    <li><a href="<?php echo base_url('partner/pre_supports/index/1'); ?>">Sau khai trương</a></li>
+                    <li><a href="<?php echo base_url('partner/tickets/create'); ?> ">Tạo yêu cầu</a></li>
+                    <?php 
+                        $login = $this->session->get_userdata(); 
+                        $check = $this->globals->check_empty_ticket($login['customer_login_id']);
+                        if(!$check):
+                    ?>
+                            <li><a href="<?php echo base_url('partner/tickets/view'); ?> ">Yêu cầu đã gửi</a></li>
+                    <?php endif; ?>
                 </ul>
                 <!-- /.sub-menu js__content -->
             </li>
             <li>
                 <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-desktop-mac"></i><span>Dịch vụ</span><span class="menu-arrow fa fa-angle-down"></span></a>
                 <ul class="sub-menu js__content">
-                    <li><a href="#">Dịch vụ đang dùng</a></li>
+                    <li><a href="<?php echo base_url('partner/currentServices/index') ?>">Dịch vụ đang dùng</a></li>
                     <li><a href="#">Gia hạn dịch vụ</a></li>
                 </ul>
                 <!-- /.sub-menu js__content -->
@@ -34,6 +41,8 @@
                 </ul>
                 <!-- /.sub-menu js__content -->
             </li>
+            
+
         </ul>
 
     </div>

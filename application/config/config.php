@@ -26,7 +26,7 @@ define('__WEB_PATH', APPPATH);
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8080/pozaatea_crm';
+$config['base_url'] = 'http://localhost:8080/pozaatea_crm_full_31_5';
 /*
 |--------------------------------------------------------------------------
 | Index File
