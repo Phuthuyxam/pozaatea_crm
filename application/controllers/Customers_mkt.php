@@ -8,6 +8,8 @@ class Customers_mkt extends CI_Controller{
         $this->load->model('Musers');
         $this->load->model('Mcustomers');
         $this->load->model('Mmkt_detail');
+        $this->load->model('Msales_overview');
+        $this->load->model('Msales_detail');
         $this->load->model('Mattr_customers');
         $this->load->model('Mmeta_customers');
         $this->load->model('Mcustomershop');
